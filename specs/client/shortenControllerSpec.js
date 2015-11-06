@@ -4,7 +4,7 @@ describe('ShortenController', function () {
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('shortly'));
-  beforeEach(inject(function($injector) {
+  beforeEach(inject(function ($injector) {
 
     // mock out our dependencies
     $rootScope = $injector.get('$rootScope');
@@ -27,12 +27,12 @@ describe('ShortenController', function () {
     createController();
   }));
 
-  afterEach(function() {
+  afterEach(function () {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should have a link property on the $scope', function() {
+  it('should have a link property on the $scope', function () {
     expect($scope.link).to.be.an('object');
   });
 

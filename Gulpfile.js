@@ -1,11 +1,11 @@
 'use strict';
 
-var gulp      = require('gulp'),
-    nodemon   = require('gulp-nodemon'),
-    bs        = require('browser-sync'),
-    reload    = bs.reload,
-    when      = require('gulp-if'),
-    shell     = require('gulp-shell');
+var gulp = require('gulp');
+var nodemon = require('gulp-nodemon');
+var bs = require('browser-sync');
+var reload = bs.reload;
+var when = require('gulp-if');
+var shell = require('gulp-shell');
 
 
 // the paths to our app files
@@ -20,7 +20,7 @@ var paths = {
 // any changes made to your
 // client side code will automagically refresh your page
 // with the new changes
-gulp.task('start', ['serve'],function () {
+gulp.task('start', ['serve'], function () {
   bs({
     notify: true,
     // address for server,
@@ -35,8 +35,11 @@ gulp.task('karma', shell.task([
 ]));
 
 // start our node server using nodemon
-gulp.task('serve', function() {
-  nodemon({script: './server/server.js', ignore: 'node_modules/**/*.js'});
+gulp.task('serve', function () {
+  nodemon({
+    script: './server/server.js',
+    ignore: 'node_modules/**/*.js'
+  });
 });
 
 gulp.task('default', ['start']);

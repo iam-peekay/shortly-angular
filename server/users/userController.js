@@ -1,11 +1,11 @@
-var User = require('./userModel.js'),
-    Q    = require('q'),
-    jwt  = require('jwt-simple');
+var User = require('./userModel.js');
+    Q = require('q');
+    jwt = require('jwt-simple');
 
 module.exports = {
   signin: function (req, res, next) {
-    var username = req.body.username,
-        password = req.body.password;
+    var username = req.body.username;
+    var password = req.body.password;
 
     var findUser = Q.nbind(User.findOne, User);
     findUser({username: username})
@@ -14,7 +14,7 @@ module.exports = {
           next(new Error('User does not exist'));
         } else {
           return user.comparePasswords(password)
-            .then(function(foundUser) {
+            .then(function (foundUser) {
               if (foundUser) {
                 var token = jwt.encode(user, 'secret');
                 res.json({token: token});
@@ -30,16 +30,16 @@ module.exports = {
   },
 
   signup: function (req, res, next) {
-    var username  = req.body.username,
-        password  = req.body.password,
-        create,
-        newUser;
+    var username = req.body.username;
+    var password = req.body.password;
+    var create;
+    var newUser;
 
     var findOne = Q.nbind(User.findOne, User);
 
     // check to see if user already exists
     findOne({username: username})
-      .then(function(user) {
+      .then(function (user) {
         if (user) {
           next(new Error('User already exist!'));
         } else {

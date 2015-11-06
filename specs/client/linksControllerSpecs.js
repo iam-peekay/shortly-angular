@@ -6,7 +6,7 @@ describe('LinksController', function () {
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('shortly'));
-  beforeEach(inject(function($injector) {
+  beforeEach(inject(function ($injector) {
 
     // mock out our dependencies
     $rootScope = $injector.get('$rootScope');
@@ -24,7 +24,7 @@ describe('LinksController', function () {
     };
   }));
 
-  it('should have a data property on the $scope', function() {
+  it('should have a data property on the $scope', function () {
     createController();
     expect($scope.data).to.be.an('object');
   });

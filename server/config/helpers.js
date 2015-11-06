@@ -1,4 +1,4 @@
-var jwt  = require('jwt-simple');
+var jwt = require('jwt-simple');
 
 module.exports = {
   errorLogger: function (error, req, res, next) {
@@ -28,7 +28,7 @@ module.exports = {
       user = jwt.decode(token, 'secret');
       req.user = user;
       next();
-    } catch(error) {
+    } catch (error) {
       return next(error);
     }
 

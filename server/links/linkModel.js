@@ -1,5 +1,5 @@
-var mongoose = require('mongoose'),
-    crypto   = require('crypto');
+var mongoose = require('mongoose');
+var crypto = require('crypto');
 
 var LinkSchema = new mongoose.Schema({
  visits: Number,
@@ -10,13 +10,13 @@ var LinkSchema = new mongoose.Schema({
  url: String
 });
 
-var createSha = function(url) {
+var createSha = function (url) {
   var shasum = crypto.createHash('sha1');
   shasum.update(url);
   return shasum.digest('hex').slice(0, 5);
 };
 
-LinkSchema.pre('save', function(next){
+LinkSchema.pre('save', function (next) {
   var code = createSha(this.url);
   this.code = code;
   next();

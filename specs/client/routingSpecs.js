@@ -2,7 +2,7 @@ describe('Routing', function () {
   var $route;
   beforeEach(module('shortly'));
 
-  beforeEach(inject(function($injector){
+  beforeEach(inject(function ($injector) {
     $route = $injector.get('$route');
   }));
 

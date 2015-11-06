@@ -4,7 +4,7 @@ describe('AuthController', function () {
   // using angular mocks, we can inject the injector
   // to retrieve our dependencies
   beforeEach(module('shortly'));
-  beforeEach(inject(function($injector) {
+  beforeEach(inject(function ($injector) {
 
     // mock out our dependencies
     $rootScope = $injector.get('$rootScope');
@@ -29,17 +29,17 @@ describe('AuthController', function () {
     createController();
   }));
 
-  afterEach(function() {
+  afterEach(function () {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
     $window.localStorage.removeItem('com.shortly');
   });
 
-  it('should have a signup method', function() {
+  it('should have a signup method', function () {
     expect($scope.signup).to.be.a('function');
   });
 
-  it('should store token in localStorage after signup', function() {
+  it('should store token in localStorage after signup', function () {
     // create a fake JWT for auth
     var token = 'sjj232hwjhr3urw90rof';
 
@@ -50,11 +50,11 @@ describe('AuthController', function () {
     expect($window.localStorage.getItem('com.shortly')).to.be(token);
   });
 
-  it('should have a signin method', function() {
+  it('should have a signin method', function () {
     expect($scope.signin).to.be.a('function');
   });
 
-  it('should store token in localStorage after signin', function() {
+  it('should store token in localStorage after signin', function () {
     // create a fake JWT for auth
     var token = 'sjj232hwjhr3urw90rof';
     $httpBackend.expectPOST('/api/users/signin').respond({token: token});

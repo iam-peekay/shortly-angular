@@ -1,6 +1,6 @@
-var Link    = require('./linkModel.js'),
-    Q       = require('q'),
-    util    = require('../config/utils.js');
+var Link = require('./linkModel.js');
+    Q = require('q');
+    util = require('../config/utils.js');
 
 
 module.exports = {
@@ -47,7 +47,7 @@ module.exports = {
         if (match) {
           res.send(match);
         } else {
-          return  util.getUrlTitle(url);
+          return util.getUrlTitle(url);
         }
       })
       .then(function (title) {
