@@ -3,19 +3,29 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http) {
 
   // Expect fetchLinks to return the JSON object
-  var fetchLinks = function () {
+  var getLinks = function () {
     return $http({
       method: 'GET',
       url: '/api/links'
     })
     .then(function (resp) {
-      console.log('response data from inside fetchLinks: ', resp);
+      console.log('response data from inside fetchLinks: ', resp.data);
       return resp.data;
     });
   };
 
+  var addLink = function(link) {
+    // add a link using our $http post request;
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    });
+  };
+
   return {
-    fetchLinks: fetchLinks
+    getLinks: getLinks,
+    addLink: addLink
   };
 
 })
