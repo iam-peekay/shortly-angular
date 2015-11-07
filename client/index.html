@@ -6,15 +6,8 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
   <body>
-    <h1>Shortly</h1>
-    <div class='navigation'>
-      <ul>
-        <li><a href="#/" class="index">All Links</a></li>
-        <li><a href="#/shorten" class="create">Shorten</a></li>
-      </ul>
-        <a href="/logout" class="logout">Logout</a>
-    </div>
-
+    <!-- ng-if will render and then remove from DOM, ng-hide simply hides
+    TODO: should return and componentize into a custom directive -->
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view></div>
 
