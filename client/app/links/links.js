@@ -1,19 +1,19 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', ['$scope', 'Links', 'Auth', function ($scope, Links, Auth) {
+.controller('LinksController', ['$scope', '$location', 'Links', 'Auth', function ($scope, $location, Links, Auth) {
   // contains JSON objects as returned to us by our server (of link documents)
-
   $scope.data = [];
 
   $scope.getLinks = function () {
-    // hit the server with a get request to /api/links using the "fetchLinks" method
-    // in our factory
-
-    Links.getLinks()
-    .then(function (data) {
-      $scope.data.links = data;
-    });
-
+    console.log('***********AUTH AUTH AUTH*******', Auth.isAuth());
+    if (!!!Auth.isAuth()) {
+      $location.path('/signin');
+    } else {
+      Links.getLinks()
+      .then(function (data) {
+        $scope.data.links = data;
+      });
+    }
   };
 
   $scope.init = function () {

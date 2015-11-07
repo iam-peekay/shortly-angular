@@ -9,10 +9,17 @@
     <a class="logout" ng-click="signout()">Logout</a>
   </div>
 
-  <ul ng-repeat="link in data.links">
-    <li><strong> {{link.title}} </strong></li>
-    <li><a href="{{link.base_url + '/' + link.code}}"> {{link.base_url + '/' + link.code}} </a></li>
-    <li><strong>Visits:</strong> {{link.visits}} </li>
+  <br>
+  <div>
+    <input ng-model='query' type='text' placeholder='Search'>
+  </div>
+
+  <ul class="data.links">
+    <li ng-repeat="link in data.links | filter: { title: query } | orderBy:link.visits">
+      <p><strong> {{link.title}} </strong></p>
+      <p><a href="{{link.base_url + '/' + link.code}}"> {{link.base_url + '/' + link.code}} </a></p>
+      <p><strong>Visits: {{link.visits}}</strong></p>
+    </li>
   </ul>
 
 </div>

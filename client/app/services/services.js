@@ -15,7 +15,6 @@ angular.module('shortly.services', [])
   };
 
   var addLink = function (link) {
-    // add a link using our $http post request;
     return $http({
       method: 'POST',
       url: '/api/links',
