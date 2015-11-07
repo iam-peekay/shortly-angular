@@ -12,7 +12,7 @@ angular.module('shortly.shorten', [])
       })
       .catch(function (err) {
         console.log("Error inside addLink: ", err);
-      })
+      });
   };
 
 });
