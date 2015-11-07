@@ -23,9 +23,20 @@ angular.module('shortly.services', [])
     });
   };
 
+  var navToLink = function (code) {
+    return $http({
+      method: 'GET',
+      url: "/api/:code"
+    })
+    .then(function () {
+      console.log('nav link executed');
+    });
+  };
+
   return {
     getLinks: getLinks,
-    addLink: addLink
+    addLink: addLink,
+    navToLink: navToLink
   };
 
 })

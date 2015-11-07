@@ -34,7 +34,6 @@ module.exports = {
 
   newLink: function (req, res, next) {
     var url = req.body.url;
-    console.log('**************************', req.body);
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }
@@ -73,8 +72,10 @@ module.exports = {
 
   navToLink: function (req, res, next) {
     var link = req.navLink;
+    console.log('**************** LINK: ', link);
     link.visits++;
     link.save(function (err, savedLink) {
+      console.log('**************** LINK: ', savedLink.url);
       if (err) {
         next(err);
       } else {
