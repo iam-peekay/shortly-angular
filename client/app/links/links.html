@@ -1,3 +1,26 @@
 <div id='container'>
-  <!-- Your html here -->
+  <!-- should create a custom directive -->
+  <h1>Shortly</h1>
+  <div class='navigation'>
+    <ul>
+      <li><a href="#/links" class="index">All Links</a></li>
+      <li><a href="#/shorten" class="create">Shorten</a></li>
+    </ul>
+    <ul><li><a href="" class="logout" ng-click="signout()">Logout</a></li></ul>
+    <ul>
+      <li>
+        <div class="search-bar"><input ng-model='query' type='text' placeholder='Search'></div>
+      </li>
+    </ul>
+  </div>
+  <!-- end custom directive -->
+  <br>
+
+
+  <div id="container" class="link" ng-repeat="link in data.links | filter: { title: query } | orderBy: '-visits'">
+    <img src="./assets/redirect_icon.png"></img>
+    <div class="title"> {{link.title}} </div>
+    <div class=""><a href="{{'/api/links/' + link.code}}"> {{link.base_url + '/' + link.code}} </a></div>
+    <div class="visits count">{{link.visits}}</div>
+  </div>
 </div>
