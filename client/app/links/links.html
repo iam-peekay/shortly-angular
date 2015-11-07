@@ -1,3 +1,11 @@
 <div id='container'>
   <!-- Your html here -->
+
+  <!-- we are expecting a links object here -->
+  <ul ng-repeat="link in links">
+    <li> link title: {{link.title}} </li>
+    <li><a href={{link.url}}>{{link.title}}</a></li>
+    <li> link visits: {{link.visits}} </li>
+  </ul>
+
 </div>
