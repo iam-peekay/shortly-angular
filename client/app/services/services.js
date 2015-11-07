@@ -14,7 +14,7 @@ angular.module('shortly.services', [])
     });
   };
 
-  var addLink = function(link) {
+  var addLink = function (link) {
     // add a link using our $http post request;
     return $http({
       method: 'POST',
@@ -64,6 +64,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('INSIDE WINDOW LOCALSTORAGE: ', $window.localStorage);
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

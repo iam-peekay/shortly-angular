@@ -48,6 +48,11 @@ h1 {
   background-color: #ccc;
 }
 
+.help-block {
+  font-size: 10px;
+  color: #C41E3A;
+}
+
 #container {
   clear: both;
   margin-top: 10px;
@@ -145,4 +150,3 @@ input[type=url]:focus {
 .creator .message {
   clear: both;
 }
-

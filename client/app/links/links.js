@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', ['$scope', 'Links', function ($scope, Links) {
+.controller('LinksController', ['$scope', 'Links', 'Auth', function ($scope, Links, Auth) {
   // contains JSON objects as returned to us by our server (of link documents)
 
   $scope.data = [];
@@ -10,14 +10,18 @@ angular.module('shortly.links', [])
     // in our factory
 
     Links.getLinks()
-    .then(function(data) {
+    .then(function (data) {
       $scope.data.links = data;
     });
 
   };
 
-  $scope.init = function() {
+  $scope.init = function () {
     $scope.getLinks();
+  };
+
+  $scope.signout = function () {
+    Auth.signout();
   };
 
   $scope.init();
