@@ -1,12 +1,11 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-
   // Expect fetchLinks to return the JSON object
   var getLinks = function () {
     return $http({
       method: 'GET',
-      url: '/api/links'
+      url: '/api/links/'
     })
     .then(function (resp) {
       console.log('response data from inside fetchLinks: ', resp.data);
@@ -17,25 +16,14 @@ angular.module('shortly.services', [])
   var addLink = function (link) {
     return $http({
       method: 'POST',
-      url: '/api/links',
+      url: '/api/links/',
       data: link
-    });
-  };
-
-  var navToLink = function (code) {
-    return $http({
-      method: 'GET',
-      url: "/api/:code"
-    })
-    .then(function () {
-      console.log('nav link executed');
     });
   };
 
   return {
     getLinks: getLinks,
-    addLink: addLink,
-    navToLink: navToLink
+    addLink: addLink
   };
 
 })
@@ -74,7 +62,6 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
-    console.log('INSIDE WINDOW LOCALSTORAGE: ', $window.localStorage);
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

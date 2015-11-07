@@ -5,8 +5,7 @@ angular.module('shortly.links', [])
   $scope.data = [];
 
   $scope.getLinks = function () {
-    console.log('***********AUTH AUTH AUTH*******', Auth.isAuth());
-    if (!!!Auth.isAuth()) {
+    if (!Auth.isAuth()) {
       $location.path('/signin');
     } else {
       Links.getLinks()
