@@ -11,10 +11,10 @@
   </div>
 
   <!-- we are expecting a links object here -->
-  <ul ng-repeat="link in links">
-    <li> link title: {{link.title}} </li>
-    <li><a href={{link.url}}>{{link.title}}</a></li>
-    <li> link visits: {{link.visits}} </li>
+  <ul ng-repeat="link in data.links">
+    <li><strong> {{link.title}} </strong></li>
+    <li><a href="{{link.base_url + '/' + link.code}}"> {{link.base_url + '/' + link.code}} </a></li>
+    <li><strong>Visits:</strong> {{link.visits}} </li>
   </ul>
 
 </div>
