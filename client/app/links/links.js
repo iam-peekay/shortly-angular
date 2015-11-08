@@ -25,4 +25,10 @@ angular.module('shortly.links', [])
 
   $scope.init();
 
-}]);
+}])
+.directive('shortenedLink', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/links/shortenedLink.html'
+  };
+});

@@ -1,17 +1,9 @@
 <div id='container'>
-  <h1>Shortly</h1>
-  <div class='navigation'>
-    <ul>
-      <li><a href="#/links" class="index">All Links</a></li>
-      <li><a href="#/shorten" class="create">Shorten</a></li>
-    </ul>
-    <a href="/logout" class="logout">Logout</a>
-  </div>
+  <nav-bar></nav-bar>
 
   <form name="shortenLinkForm" ng-submit='addLink()' novalidate>
     <input type='url' name="inputURL" ng-model='link.url'>
     <button>Shorten Link</button>
   </form>
   <span class="help-block" ng-show="shortenLinkForm.inputURL.$error.url"> Not a valid URL! </span>
-
 </div>
