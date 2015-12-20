@@ -1,3 +1,8 @@
+/*
+This contains our Links factory and Auth factory.
+We separate out the two factories to allow for seperation of concerns
+AND so that multiple controllers can share these common functions and only inject the ones which the controller needs
+*/
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
@@ -13,6 +18,7 @@ angular.module('shortly.services', [])
     });
   };
 
+  // Sends a new link to the server to be added
   var addLink = function (link) {
     return $http({
       method: 'POST',
@@ -28,8 +34,7 @@ angular.module('shortly.services', [])
 
 })
 .factory('Auth', function ($http, $location, $window) {
-  // Don't touch this Auth service!!!
-  // it is responsible for authenticating our user
+  // This Auth service is responsible for authenticating our user
   // by exchanging the user's username and password
   // for a JWT from the server
   // that JWT is then stored in localStorage as 'com.shortly'

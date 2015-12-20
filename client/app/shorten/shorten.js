@@ -1,3 +1,7 @@
+/*
+This module is handles shortenning of links and then redirecting user
+to the links page
+*/
 angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
